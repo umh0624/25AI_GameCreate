@@ -2,16 +2,16 @@
 
 public class SpikeAction : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    float speed = 5f;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x - 0.05f, transform.position.y, transform.position.z);
+        float moveVectorY = Time.deltaTime * speed;
+        transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y - moveVectorY,
+            transform.position.z
+        );
     }
 
     void OnCollisionEnter2D(Collision2D collision)
